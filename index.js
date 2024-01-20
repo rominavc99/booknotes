@@ -11,7 +11,7 @@ const app = express();
 
 const port = 3000;
 
-var conString = "postgres://bhzjwwtc:g41J43tBn1bhyDznXH6K4YSwuWgGdyqW@heffalump.db.elephantsql.com/bhzjwwtc" //Can be found in the Details page
+const conString = process.env.DATABASE_URL;
 var db = new pg.Client(conString);
 db.connect(function(err) {
   if(err) {
