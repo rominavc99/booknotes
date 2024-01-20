@@ -7,18 +7,13 @@ import bcrypt from "bcrypt";
 const app = express();
 
 
-
-// Parsea la URL de conexión
-const connectionString = "postgres://bhzjwwtc:g41J43tBn1bhyDznXH6K4YSwuWgGdyqW@heffalump.db.elephantsql.com/bhzjwwtc";
-const { username, password, host, port, pathname } = new URL(connectionString);
-
-// Configura la conexión a la base de datos
+const port = 3000;
 const db = new pg.Client({
-  user: username,
-  password: password,
-  host: host,
-  port: port || 5432, // Usa el puerto predeterminado 5432 si no está definido
-  database: pathname.substr(1), // Elimina la barra inicial del pathname
+  user: "postgres",
+  host: "localhost",
+  database: "books",
+  password: "mantequilla",
+  port: 5432,
 });
 
 db.connect();
