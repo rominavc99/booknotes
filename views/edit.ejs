@@ -23,29 +23,30 @@
 
     <div class="container">
         
-            <form method="POST" action="/create">
+            <form method="POST" action="/edit">
+                <input type="hidden" name="id" value="<%= book.id %>">
                 <div class="row mb-3">
                     <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputTitle" name="title">
+                        <input type="text" class="form-control" id="inputTitle" name="title" value="<%= book.title %>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="inputAuthor" class="col-sm-2 col-form-label">Author</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputAuthor" name="author">
+                        <input type="text" class="form-control" id="inputAuthor" name="author" value="<%= book.author %>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="olid" class="col-sm-2 col-form-label">OLID Label</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="olid" name="olid">
+                        <input type="text" class="form-control" id="olid" name="olid" value="<%= book.olid %>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Review</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" aria-label="With textarea" name="review"></textarea>
+                        <textarea class="form-control" aria-label="With textarea" name="review"><%= book.review %></textarea>
                     </div>
                 </div>
                 <fieldset class="row mb-3">
@@ -53,35 +54,35 @@
                     <div class="col-sm-10">
                     <div class="form-check">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="novel" name="novel" value="true">
+                            <input class="form-check-input" type="checkbox" id="novel" name="novel" value="true" <% if (book.novel) { %>checked<% } %>>
                             <label class="form-check-label" for="novel">Novel</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="shortStory" name="short_story"  value="true">
+                            <input class="form-check-input" type="checkbox" id="shortStory" name="short_story"  value="true" <% if (book.short_story) { %>checked<% } %>>
                             <label class="form-check-label" for="shortStory">Short Story</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="drama" name="drama"  value="true">
+                            <input class="form-check-input" type="checkbox" id="drama" name="drama"  value="true" <% if (book.drama) { %>checked<% } %>>
                             <label class="form-check-label" for="drama">Drama</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="suspense" name="suspense"  value="true">
+                            <input class="form-check-input" type="checkbox" id="suspense" name="suspense"  value="true" <% if (book.suspense) { %>checked<% } %>>
                             <label class="form-check-label" for="suspense">Suspense</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="fiction" name="fiction"  value="true">
+                            <input class="form-check-input" type="checkbox" id="fiction" name="fiction"  value="true" <% if (book.fiction) { %>checked<% } %>>
                             <label class="form-check-label" for="fiction">Fiction</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="sliceOfLife" name="slice_of_life"  value="true">
+                            <input class="form-check-input" type="checkbox" id="sliceOfLife" name="slice_of_life"  value="true" <% if (book.slice_of_life) { %>checked<% } %>>
                             <label class="form-check-label" for="sliceOfLife">Slice of life</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="terror" name="terror"  value="true">
+                            <input class="form-check-input" type="checkbox" id="terror" name="terror"  value="true" <% if (book.terror) { %>checked<% } %>>
                             <label class="form-check-label" for="terror">Terror</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="fantasy" name="fantasy"  value="true">
+                            <input class="form-check-input" type="checkbox" id="fantasy" name="fantasy"  value="true" <% if (book.fantasy) { %>checked<% } %>>
                             <label class="form-check-label" for="fantasy">Fantasy</label>
                         </div>
                     </div>
@@ -93,22 +94,26 @@
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Rating</label>
                     <select class="form-select" id="rating" name="rating" required>
                         <option selected>Choose...</option>
-                        <option value="Bad">Bad</option>
-                        <option value="Nothing impressive">Nothing impressive</option>
-                        <option value="Good">Good</option>
-                        <option value="Loved it!">Loved it!</option>
-                        <option value="Favorite book">Favorite book</option>
+                        <option value="Bad" <% if (book.rating === 'Bad') { %>selected<% } %>>Bad</option>
+                        <option value="Nothing impressive" <% if (book.rating === 'Nothing impressive') { %>selected<% } %>>Nothing impressive</option>
+                        <option value="Good" <% if (book.rating === 'Good') { %>selected<% } %>>Good</option>
+                        <option value="Loved it!" <% if (book.rating === 'Loved it!') { %>selected<% } %>>Loved it!</option>
+                        <option value="Favorite book" <% if (book.rating === 'Favorite book') { %>selected<% } %>>Favorite book</option>
                 
                     </select>
                 </div>
-                <div class="container-fluid d-flex justify-content-end">
-                    
-                    <a href="/indexAdmin" class="btn btn-danger m-2">Cancelar</a>   
+                <div class="container d-flex justify-content-end">
+                   
                     <button type="submit" class="btn btn-success m-2">Guardar</button>
                 
                 </div>
                 
             </form>
+            <div class="container d-flex justify-content-end">
+                <a href="/indexAdmin" class="btn btn-danger m-2">Cancelar</a>
+
+            </div>
+            
             
         </div>        
         

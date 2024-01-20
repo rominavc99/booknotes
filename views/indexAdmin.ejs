@@ -1,43 +1,48 @@
 <%- include('partials/header.ejs'); -%>
 
 <div class="container-fluid bg-dark ">
-<header class="p-3 text-bg-dark">
-    <div class="container fluid bg-dark">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                    <use xlink:href="#bootstrap"></use>
-                </svg>
-            </a>
+    <header class="p-3 text-bg-dark">
+        <div class="container fluid bg-dark">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li>
-                    <form method="GET" action="/" style="display: inline;">
-                        <button type="submit" class="nav-link px-2 text-white">Home</button>
-                    </form>
-                </li>
-                <li><a href="#" class="nav-link px-2 text-white">Documentation</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Github</a></li>
-            </ul>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <form method="GET" action="/" style="display: inline;">
+                            <button type="submit" class="nav-link px-2 text-white">Home</button>
+                        </form>
+                    </li>
+                    <li><a href="#" class="nav-link px-2 text-white">Documentation</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Github</a></li>
+                </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET" action="/search">
-                <input type="search" name="query" class="form-control form-control-dark text-bg-dark text-white"
-                    placeholder="Search..." aria-label="Search" spellcheck="false" data-ms-editor="true">
-            </form>
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark text-bg-dark text-white"
+                        placeholder="Search..." aria-label="Search" spellcheck="false" data-ms-editor="true">
+                </form>
 
-
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 </div>
 
 <div class="px-4 py-5 mb-5 text-center bg-body-tertiary">
     <img class="d-block mx-auto mb-4" src="/assets/images/dinostudio.png" alt="" width="200" height="130">
     <h1 class="display-5 fw-bold text-body-emphasis">Romina's reading list</h1>
     <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">On this quick practice project I created a reading list that saves some of the books I have read, with a personal review and rating, I am implementing Express/NodeJS for the serverside, PostgreSQL for the database, and simple HTML, CSS, and JS with Bootstrap for the Frontend desing, adding EJS as templating system.</p>
+        <p class="lead mb-4">On this quick practice project I created a reading list that saves some of the books I have
+            read, with a personal review and rating, I am implementing Express/NodeJS for the serverside, PostgreSQL for
+            the database, and simple HTML, CSS, and JS with Bootstrap for the Frontend desing, adding EJS as templating
+            system.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Contact me</button>
+            <form method="GET" action="/" style="display: inline;">
+                <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Take me to public index</button>
+            </form>
+            
             <button type="button" class="btn btn-outline-secondary btn-lg px-4">Documentation</button>
         </div>
     </div>
@@ -47,7 +52,7 @@
         <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-md-2">
-                    <img  src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" class="img-fluid rounded-start" alt="Cover">
+                    <img src="https://covers.openlibrary.org/b/olid/<%= book.olid %>-L.jpg" class="img-fluid rounded-start" alt="Cover">
                 </div>
                 <div class="col-md-10">
                     <div class="card-body">
@@ -95,8 +100,35 @@
                     </div>
                 </div>
             </div>
-           
+            <div class="container d-flex justify-content-end m-3">
+                <form method="GET" action="/edit/<%= book.id %>" style="display: inline;">
+                    <button type="submit" class="btn btn-outline-secondary me-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z">
+                            </path>
+                        </svg>
+                    </button>
+                </form>
             
+                <form method="POST" action="/delete/<%= book.id %>" style="display: inline;">
+                    <button type="submit" class="btn btn-outline-danger ms-1 me-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0">
+                        </path>
+                    </svg>
+                    </button>
+                </form>
+            </div>
+
+       
+                
+
+
+
         </div>
         <% }); %>
 </div>
