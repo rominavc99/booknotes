@@ -58,6 +58,11 @@ app.get("/", async (req, res) => {
     }
 });
 
+app.get("/docs", async (req, res) => {
+
+    res.render("docs");
+});
+
 app.get("/indexAdmin", requireAuth, async (req, res) => {
     try {
         // Lógica para obtener la lista de libros desde la base de datos

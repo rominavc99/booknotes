@@ -1,14 +1,45 @@
 <%- include('partials/header.ejs'); -%>
 
-    <div class="container ">
-        <header class="d-flex justify-content-center py-3">
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Documentation</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Github Rep</a></li>
-            </ul>
-        </header>
-    </div>
+<div class="container-fluid bg-dark ">
+    <header class="p-3 text-bg-dark">
+        <div class="container fluid bg-dark">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <form method="GET" action="/" style="display: inline;">
+                            <button type="submit" class="nav-link px-2 text-white">Home</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form method="GET" action="/docs" style="display: inline;">
+                            <button type="submit" class="nav-link px-2 text-white">Documentation</button>
+                        </form>
+                    </li>
+                    <li><a href="https://github.com/rominavc99/booknotes" class="nav-link px-2 text-white">GitHub</a>
+                    </li>
+                    <li>
+                        <form method="GET" action="/indexAdmin" style="display: inline;">
+                            <button type="submit" class="nav-link px-2 text-white">Owner?</button>
+                        </form>
+                    </li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET" action="/search">
+                    <input type="search" name="query" class="form-control form-control-dark text-bg-dark text-white"
+                        placeholder="Search..." aria-label="Search" spellcheck="false" data-ms-editor="true">
+                </form>
+
+
+            </div>
+        </div>
+    </header>
+</div>
 
     <div class="px-4 py-5 my-5 text-center bg-body-tertiary">
         <img class="d-block mx-auto mb-4" src="/assets/images/dinostudio.png" alt="" width="200" height="130">
@@ -44,4 +75,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <%- include('partials/footer.ejs'); -%>
+   

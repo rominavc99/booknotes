@@ -16,8 +16,17 @@
                         <button type="submit" class="nav-link px-2 text-white">Home</button>
                     </form>
                 </li>
-                <li><a href="#" class="nav-link px-2 text-white">Documentation</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Github</a></li>
+                <li>
+                    <form method="GET" action="/docs" style="display: inline;">
+                        <button type="submit" class="nav-link px-2 text-white">Documentation</button>
+                    </form>
+                </li>
+                <li><a href="https://github.com/rominavc99/booknotes" class="nav-link px-2 text-white">GitHub</a></li>
+                <li>
+                    <form method="GET" action="/indexAdmin" style="display: inline;">
+                        <button type="submit" class="nav-link px-2 text-white">Owner?</button>
+                    </form>
+                </li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET" action="/search">
@@ -38,7 +47,10 @@
         <p class="lead mb-4">On this quick practice project I created a reading list that saves some of the books I have read, with a personal review and rating, I am implementing Express/NodeJS for the serverside, PostgreSQL for the database, and simple HTML, CSS, and JS with Bootstrap for the Frontend desing, adding EJS as templating system.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Contact me</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Documentation</button>
+            <form method="GET" action="/docs" style="display: inline;">
+                <button type="submit" class="btn btn-outline-secondary btn-lg px-4">Documentation</button>
+            </form>
+            
         </div>
     </div>
 </div>

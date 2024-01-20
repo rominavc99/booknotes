@@ -1,0 +1,154 @@
+<%- include('partials/header.ejs'); -%>
+
+    <div class="container-fluid bg-dark ">
+        <header class="p-3 text-bg-dark">
+            <div class="container fluid bg-dark">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>
+                            <form method="GET" action="/" style="display: inline;">
+                                <button type="submit" class="nav-link px-2 text-white">Home</button>
+                            </form>
+                        </li>
+                        <li><a href="#" class="nav-link px-2 text-white">Documentation</a></li>
+                        <li><a href="https://github.com/rominavc99/booknotes" class="nav-link px-2 text-white">GitHub</a></li>
+                        <li>
+                            <form method="GET" action="/indexAdmin" style="display: inline;">
+                                <button type="submit" class="nav-link px-2 text-white">Owner?</button>
+                            </form>
+                        </li>
+                    </ul>
+
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET" action="/search">
+                        <input type="search" name="query" class="form-control form-control-dark text-bg-dark text-white"
+                            placeholder="Search..." aria-label="Search" spellcheck="false" data-ms-editor="true">
+                    </form>
+
+
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="px-4 py-5 mb-5 text-center bg-body-tertiary">
+        <img class="d-block mx-auto mb-4" src="/assets/images/dinostudio.png" alt="" width="200" height="130">
+        <h1 class="display-5 fw-bold text-body-emphasis">Romina's reading list [Documentation Page]</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Welcome to the documentation page of this project. First thing you need to know about this is that this was developed as part of the 2024 Web Development Bootcamp course from App Brewery in Udemy.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Contact me</button>
+                <a href="https://github.com/rominavc99/booknotes" class="btn btn-outline-secondary btn-lg px-4">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="col">
+        
+            <article class="blog-post">
+                <h2 class="display-5 link-body-emphasis mb-1">Project Summary</h2>
+                <p class="blog-post-meta">January 19, 2024 by <span style="font-weight: bold;">Romina Verdugo</span></p>
+        
+                <p>Get to know a bit more about this project and the learning objectives of it.</p>
+                <hr>
+                <p>This is a capstone project, part of the 34th lesson of the 2024 Web Development Bootcamp course from App Brewery. We where given a set of instructions to develop a web application that holds a book notes page, we had requirements and references to work with. </p>
+                <h2>Objectives</h2>
+                <p>API integration, to use a public API and consume its data in our web projects.</p>
+                <p>Use of Express and NodeJS for server side programming. </p>
+                <p>Implementation of CRUD forms, using a PostgreSQL data base. </p>
+
+                <h3>Technical details</h3>
+                <p>With the objectives set, these are the modules that my Book Notes project integrates to accomplish the result.</p>
+
+                <ul>
+                    <li>express</li>
+                    <li>body-parser</li>
+                    <li>pg</li>
+                    <li>express-session</li>
+                    <li>bycrpt</li>
+                </ul>
+
+                <p>In addition to this, a PosgreSQL database was created to hold the tables needed to store the projects data.</p>
+
+                <p>Lastly, for the API integration, I used the suggested public API in the project's instructions: <a href="https://openlibrary.org/dev/docs/api/covers">Open Library Covers API</a> to fetch book covers.</p>
+
+                <h2>Development Pipeline</h2>
+
+                <p>This is the process I followed to develop this project.</p>
+
+                <ol>
+                    <li>Project Planning</li>
+                    <li>Database desing</li>
+                    <li>Project setting</li>
+                    <li>Frontend desing</li>
+                    <li>Backend programming</li>
+                    <li>Documentation</li>
+                </ol>
+
+                <blockquote class="blockquote">
+                    <p>Project Planning</p>
+                </blockquote>
+                <p>On this initial stage, I tried to view the project inside my head and kinda tried to navigate on it, I did some simple mockups of the desing and tried to think about the user experience. </p>
+                <p>Here is where I found my first challenge, I realized my app would need an admin and regular user configuration, since I wanted visitors to view my content, but I also wanted to have a interface to add, edit, and delete my book entries. I didn't want to have any of those routes accessible to regular visitors, so I started looking into authentification. </p>
+                <p>Up until now, we didn't get to tap into the authentification part of the Bootcamp, so I knew I would need to look by myself into that. </p>
+
+                <blockquote class="blockquote">
+                    <p>Database desing</p>
+                </blockquote>
+                <p>I used Whimsical to try to create a initial desing of my database, the tables I would need to create, the data that they would store, as well as the datatypes for each value. </p>
+                <p>Even though I spend a solid 30min thinking on the database desing, I still had to come back and make modification to the database as I worked on the backend programming parts. </p>
+
+                <blockquote class="blockquote">
+                    <p>Project Setting</p>
+                </blockquote>
+                <p>On this stage, I started to create my project files, all the folders I would need to keep a clean structure, creating the node project and installing all the corresponding modules to work with it. </p>
+               
+                <blockquote class="blockquote">
+                    <p>Frontend desing</p>
+                </blockquote>
+                <p>After having all of my initial files set, I imported Bootstrap to my project to get hold of its components, being able to easil style my site and having a responsive desing as well. </p>
+
+                <blockquote class="blockquote">
+                    <p>Backend programming</p>
+                </blockquote>
+                <p>Probably the hardest part, and what took most of my time, after completing the initial frontend desing, I started by working in the authentification part of my project. </p>
+
+                <dl>
+                    <dt>Authentification</dt>
+                    <dd>While investigating on this, I found out about some of the best practices to handle authentification. I knew I didn't want to handle a registration process since I would be the only user posting books. The approach I took for this was to create a new table on my database to store my admin credentials.
+                        I learned that when storing passwords, you can never save them just as they are, you need to hash them to preserve security, so I decided to look into that as practice even though this is a really small project. Here I learned about the bycript module that allowed me to create a simple script to hash my password so I could then store it in my DB.</dd>
+                    
+                    <dd>After that, the first routes I created were the <code class="language-plaintext highlighter-rouge">GET/login</code> and <code class="language-plaintext highlighter-rouge">POST/login</code>, which allowed me to get a view of the login template and to properly login using my username and password, so I was then redirected to the indexAdmin page.</dd>
+                    
+                    <dt>CRUD</dt>
+                    <dd>After that, I created the rest of the routes to create, read, update and delete the book entries. The first ones being the intial <code class="language-plaintext highlighter-rouge">GET</code> routes, to get current book information I had on my database, to display it on the general index and indexAdmin views of my project.</dd>
+                    <dd>The create and edit routes where next, each of these routes had both a <code class="language-plaintext highlighter-rouge">GET</code> and <code class="language-plaintext highlighter-rouge">POST</code> route, the first one to get an initial view of the form, and the second one to actually send the information to my server and into my database. </dd>
+                   
+                    <dt>Search implementation</dt>
+                    <dd>After having my CRUD working, I started to look into new ways to use the data I had stored, so I decided to add a search bar that allowed users to look into the book entries searching the book's title, author, or by raiting that I provided. (since the rating was a comment and not a number)</dd>
+                </dl>
+
+                <p>This is pretty much the general view about the back end programming part. I struggled a lot, I used ChatGPT for troubleshooting and StackOverflow for ideas. </p>
+
+                <blockquote class="blockquote">
+                    <p>Documentation</p>
+                </blockquote>
+                <p>The final part of the project, I started by filling information into the Readme file of my Github repository with details about the routes I created and what you can find in the index.js file, and also wrote this page stored in the web application as well. </p>
+
+              
+        </div>
+        
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <%- include('partials/footer.ejs'); -%>
