@@ -3,25 +3,33 @@ import bodyParser from "body-parser";
 import pg from "pg";
 import session from "express-session";
 import bcrypt from "bcrypt";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
+const port = 3000;
 
-
-// Parsea la URL de conexión
-const connectionString = "postgres://bhzjwwtc:g41J43tBn1bhyDznXH6K4YSwuWgGdyqW@heffalump.db.elephantsql.com/bhzjwwtc";
-const { username, password, host, port, pathname } = new URL(connectionString);
-
-// Configura la conexión a la base de datos
-const db = new pg.Client({
-  user: username,
-  password: password,
-  host: host,
-  port: port || 5432, // Usa el puerto predeterminado 5432 si no está definido
-  database: pathname.substr(1), // Elimina la barra inicial del pathname
+var conString = "postgres://bhzjwwtc:g41J43tBn1bhyDznXH6K4YSwuWgGdyqW@heffalump.db.elephantsql.com/bhzjwwtc" //Can be found in the Details page
+var db = new pg.Client(conString);
+db.connect(function(err) {
+  if(err) {
+    return console.error('could not connect to postgres', err);
+  }
+  db.query('SELECT NOW() AS "theTime"', function(err, result) {
+    if(err) {
+      return console.error('error running query', err);
+    }
+    console.log(result.rows[0].theTime);
+    // >> output: 2018-08-23T14:02:57.117Z
+   
+  });
 });
 
-db.connect();
+
+
+
 
 // Configurar EJS como motor de plantillas
 app.set("view engine", "ejs");
@@ -156,11 +164,12 @@ app.post("/create", async (req, res) => {
         slice_of_life: bookData.slice_of_life === 'true',
         terror: bookData.terror === 'true',
         fantasy: bookData.fantasy === 'true',
+        romance: bookData.romance === 'true',
     };
 
     try {
         await db.query(
-            'INSERT INTO book(title, review, olid, novel, short_story, drama, fiction, fantasy, suspense, slice_of_life, horror, rating, author) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)',
+            'INSERT INTO book(title, review, olid, novel, short_story, drama, fiction, fantasy, suspense, slice_of_life, horror, rating, author, romance) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)',
             [
                 bookData.title,
                 bookData.review,
@@ -175,6 +184,7 @@ app.post("/create", async (req, res) => {
                 bookData.horror,
                 bookData.rating,
                 bookData.author,
+                bookData.romance,
             ]
         );
 
@@ -226,11 +236,12 @@ app.post("/edit", async (req, res) => {
         slice_of_life: bookData.slice_of_life === 'true',
         terror: bookData.terror === 'true',
         fantasy: bookData.fantasy === 'true',
+        romance: bookData.romance === 'true',
     };
 
     try {
         await db.query(
-            'UPDATE book SET title = $1, review = $2, olid = $3, novel = $4, short_story = $5, drama = $6, fiction = $7, fantasy = $8, suspense = $9, slice_of_life = $10, horror = $11, rating = $12, author = $13 WHERE id = $14',
+            'UPDATE book SET title = $1, review = $2, olid = $3, novel = $4, short_story = $5, drama = $6, fiction = $7, fantasy = $8, suspense = $9, slice_of_life = $10, horror = $11, rating = $12, author = $13, romance = $14  WHERE id = $15',
             [
                 bookData.title,
                 bookData.review,
@@ -245,6 +256,7 @@ app.post("/edit", async (req, res) => {
                 bookData.horror,
                 bookData.rating,
                 bookData.author,
+                bookData.romance,
                 bookData.id,
             ]
         );
@@ -275,7 +287,6 @@ app.post("/delete/:id", async (req, res) => {
 
 
 
-// Iniciar el servidor
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });

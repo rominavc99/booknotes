@@ -1,20 +1,43 @@
 <%- include('partials/header.ejs'); -%>
 
-    <div class="container ">
-        <header class="d-flex justify-content-center py-3">
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li>
-                    <form method="GET" action="/" style="display: inline;">
-                        <button type="submit" class="nav-link px-2 text-white">Home</button>
+    <div class="container-fluid bg-dark ">
+        <header class="p-3 text-bg-dark">
+            <div class="container fluid bg-dark">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
+    
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>
+                            <form method="GET" action="/" style="display: inline;">
+                                <button type="submit" class="nav-link px-2 text-white">Home</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="GET" action="/docs" style="display: inline;">
+                                <button type="submit" class="nav-link px-2 text-white">Documentation</button>
+                            </form>
+                        </li>
+                        <li><a href="https://github.com/rominavc99/booknotes" class="nav-link px-2 text-white">GitHub</a>
+                        </li>
+                        <li>
+                            <form method="GET" action="/indexAdmin" style="display: inline;">
+                                <button type="submit" class="nav-link px-2 text-white">Owner?</button>
+                            </form>
+                        </li>
+                    </ul>
+    
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="GET" action="/search">
+                        <input type="search" name="query" class="form-control form-control-dark text-bg-dark text-white"
+                            placeholder="Search..." aria-label="Search" spellcheck="false" data-ms-editor="true">
                     </form>
-                </li>
-                <li>
-                    <form method="GET" action="/docs" style="display: inline;">
-                        <button type="submit" class="nav-link px-2 text-white">Documentation</button>
-                    </form>
-                </li>
-                <li><a href="https://github.com/rominavc99/booknotes" class="nav-link px-2 text-white">Github</a></li>
-            </ul>
+    
+    
+                </div>
+            </div>
         </header>
     </div>
 
@@ -91,6 +114,10 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="fantasy" name="fantasy"  value="true">
                             <label class="form-check-label" for="fantasy">Fantasy</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="romance" name="romance" value="true">
+                            <label class="form-check-label" for="romance">Romance</label>
                         </div>
                     </div>
                     </div>
